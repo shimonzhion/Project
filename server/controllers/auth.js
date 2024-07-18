@@ -38,10 +38,10 @@ const userRegister = async (req, res) => {
       image,
       birthdate,
     });
-    if (graduate) {
+    if (user) {
       const token = generateToken(user._id);
       res.cookie("token", token, {
-        httpOnly: true,
+        httpOnly: true,     
         maxAge: 30 * 24 * 60 * 60 * 1000,
       });
       return res.status(200).json({
