@@ -4,7 +4,7 @@ const cors = require('cors');
 const path =require('path');
 const app = express();
 
-
+require('./config/db').default;
 const port = process.env.PORT || 8090;
 
 app.use(cors());
