@@ -7,6 +7,9 @@ const app = express();
 require('./config/db').default;
 const port = process.env.PORT || 8090;
 
+const userRouter = require("./routes/user-route");
+
+
 app.use(cors());
 app.use(express.json({extended: true}));
 app.use(express.urlencoded({extended: true}));
@@ -15,6 +18,8 @@ app.use(express.urlencoded({extended: true}));
 app.get('/', (req,res)=>{
     res.status(200).json({message: 'Welcom to the API'});
 });
+
+app.use('/api/user',userRouter)
 app.listen(port, ()=>{
     console.log(`server listen in port ${port}`);
 });
