@@ -1,4 +1,3 @@
-import "./App.css";
 import Router from "./Router";
 import ResponsiveNavbar from "./components/features/navbar/Navbar";
 
