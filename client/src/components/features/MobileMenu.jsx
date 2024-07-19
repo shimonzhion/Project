@@ -7,9 +7,10 @@ import IconButton from "@mui/material/IconButton";
 import CloseIcon from "@mui/icons-material/Close";
 import { Box } from "@mui/material";
 
-const pages = ["Home", ]; 
 
-function MobileMenu({ open, onClose }) {
+
+
+function MobileMenu({ open, onClose, pages, navigate }) {
   const handleMenuItemClick = () => {
     onClose(); //close menu
   };
@@ -27,9 +28,9 @@ function MobileMenu({ open, onClose }) {
         </IconButton>
         </Box>
         <List>
-          {pages.map((text) => (
-            <ListItem  key={text} onClick={handleMenuItemClick}>
-              <ListItemText  primary={text} primaryTypographyProps={{ fontSize: '1.3rem' }}/>
+          {pages.map((page) => (
+            <ListItem  key={page} onClick={handleMenuItemClick}>
+              <ListItemText  primary={page.toUpperCase()} primaryTypographyProps={{ fontSize: '1.3rem' }} onClick={()=>navigate(page ==='home'? '/':page)}/>
             </ListItem> ))}
         </List>
         <Divider />

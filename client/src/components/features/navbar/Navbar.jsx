@@ -9,11 +9,13 @@ import Container from "@mui/material/Container";
 import Avatar from "@mui/material/Avatar";
 import Button from "@mui/material/Button";
 import MobileMenu from "../MobileMenu"; 
+import { useNavigate } from "react-router-dom";
 
-const pages = ["Home"];
+const pages = ["home"];
 
 function ResponsiveNavbar() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const navigate = useNavigate();
 
   const handleOpenMobileMenu = () => { setMobileMenuOpen(true); };
   const handleCloseMobileMenu = () => { setMobileMenuOpen(false); };
@@ -39,7 +41,7 @@ function ResponsiveNavbar() {
             </Typography>
             <Box sx={{ flexGrow: 1, display: { xs: "none", md: "flex" } }}>
               {pages.map((page) => (
-                <Button key={page} sx={{ my: 2, color: "white", display: "block" }}>
+                <Button key={page} sx={{ my: 2, color: "white", display: "block" }} onClick={()=>navigate(page === 'home'? '/':page)}>
                   {page}
                 </Button>
               ))}
@@ -53,7 +55,7 @@ function ResponsiveNavbar() {
         </Container>
       </AppBar>
       {/* Mobile Menu */}
-      <MobileMenu open={mobileMenuOpen} onClose={handleCloseMobileMenu} />
+      <MobileMenu open={mobileMenuOpen} onClose={handleCloseMobileMenu} pages={pages} navigate={navigate}/>
     </>
   );
 }
