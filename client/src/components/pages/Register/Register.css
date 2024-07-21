@@ -1,0 +1,20 @@
+.register_form_box {
+  width: 400px;
+  margin-right: 10%;
+  text-align: center;
+}
+
+@media screen and (max-width: 726px) {
+  .register_form_box {
+    margin: 0;
+    display: flex;
+    margin-right: 0;
+    justify-content: center;
+  }
+  .register_form_box form {
+    width: 80%;
+  }
+  .google_btn_box{
+    margin-top: 10%;
+}
+}
